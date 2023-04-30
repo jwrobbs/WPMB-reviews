@@ -29,3 +29,5 @@ define(
 // Includes.
 require 'php/review-post-type.php';
 require 'php/review-category-taxonomy.php';
+require 'php/review-fields.php';
+require 'php/review-shortcode.php';
