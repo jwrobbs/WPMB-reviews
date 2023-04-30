@@ -14,13 +14,17 @@
 
 defined( 'ABSPATH' ) || exit;
 
-/*
-	[x] Create post type
-	[x] Create taxonomy
-	[] Create fields (ACF Pro)
-	[] Create shortcode
-	[] Create shortcode fn
-*/
+// Define constants.
+define(
+	'WPMB_REVIEWS_DETAILS',
+	array(
+		'review_post_type'         => 'review',
+		'single_name'              => 'Review',
+		'plural_name'              => 'Reviews',
+		'review_category_taxonomy' => 'review_category', // Or leave empty for no category taxonomy.
+
+	)
+);
 
 // Includes.
 require 'php/review-post-type.php';
