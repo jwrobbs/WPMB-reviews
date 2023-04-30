@@ -373,9 +373,9 @@
         "location": [
             [
                 {
-                    "param": "post_category",
+                    "param": "post_type",
                     "operator": "==",
-                    "value": "category:review"
+                    "value": "review"
                 }
             ]
         ],

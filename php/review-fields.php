@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
  * @return void
  */
 function register_review_fields() {
-	if ( function_exists( 'acf_add_local_field_group' ) ) {
+	if ( function_exists( 'acf_add_local_field_group' ) ) :
 
 		acf_add_local_field_group(
 			array(
@@ -392,9 +392,9 @@ function register_review_fields() {
 				'location'              => array(
 					array(
 						array(
-							'param'    => 'post_category',
+							'param'    => 'post_type',
 							'operator' => '==',
-							'value'    => 'category:review',
+							'value'    => 'review',
 						),
 					),
 				),
@@ -409,7 +409,9 @@ function register_review_fields() {
 				'show_in_rest'          => 0,
 			)
 		);
-	}
+
+		endif;
+
 }
 add_action( 'acf/init', __NAMESPACE__ . '\register_review_fields' );
 
