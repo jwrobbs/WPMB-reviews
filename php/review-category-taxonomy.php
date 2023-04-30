@@ -5,7 +5,7 @@
  * @package wpmb_reviews
  */
 
-namespace WPMB_Reviews\Review_Category_Taxonomy;
+namespace WPMB_Reviews\PHP;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -15,10 +15,13 @@ defined( 'ABSPATH' ) || exit;
  * @return void
  */
 function register_taxonomy_review_category() {
-	$single_name = __( 'Review Category', 'wpmb-reviews' );
-	$plural_name = __( 'Review Categories', 'wpmb-reviews' );
+	if ( ! isset( WPMB_REVIEWS_DETAILS['review_category_taxonomy'] ) ) {
+		return;
+	}
 
-	// Set $labels w/o sprintf.
+	$single_name = WPMB_REVIEWS_DETAILS['single_name'] . ' Category';
+	$plural_name = WPMB_REVIEWS_DETAILS['single_name'] . ' Categories';
+
 	$labels = array(
 		'name'                       => $plural_name,
 		'singular_name'              => $single_name,
@@ -44,8 +47,8 @@ function register_taxonomy_review_category() {
 
 	// Register the taxonomy.
 	register_taxonomy(
-		'review_category',
-		'review',
+		WPMB_REVIEWS_DETAILS['review_category_taxonomy'],
+		WPMB_REVIEWS_DETAILS['review_post_type'],
 		array(
 			'labels'            => $labels,
 			'public'            => true,
@@ -53,9 +56,11 @@ function register_taxonomy_review_category() {
 			'hierarchical'      => true,
 			'show_admin_column' => true,
 			'rewrite'           => array(
-				'slug' => 'review-category',
+				'slug' => WPMB_REVIEWS_DETAILS['review_category_taxonomy'],
 			),
 		)
 	);
 }
-add_action( 'init', __NAMESPACE__ . '\register_taxonomy_review_category' );
+if ( isset( WPMB_REVIEWS_DETAILS['review_category_taxonomy'] ) ) {
+	add_action( 'init', __NAMESPACE__ . '\register_taxonomy_review_category' );
+}
