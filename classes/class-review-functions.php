@@ -9,3 +9,24 @@
  * @package wpmb_reviews
  */
 
+namespace WPMB_Reviews\classes;
+
+defined( 'ABSPATH' ) || exit;
+
+/**
+ * Review Functions class
+ */
+class Review_Functions {
+
+	/**
+	 * Generate review HTML
+	 *
+	 * @param int $post_id Post ID.
+	 *
+	 * @return string
+	 */
+	public static function wpmb_review_html( $post_id ) {
+
+		return '';
+	}
+}
