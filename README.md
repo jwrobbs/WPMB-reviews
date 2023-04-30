@@ -15,14 +15,15 @@ This plugin was developed for 2 purposes:
 
 ## Usage
 
-### Note
+### Notes
 
-**_This plugin uses ACF PRO to create the review fields. It won't work w/o it._**
+- **_This plugin uses ACF PRO to create the review fields. It won't work w/o it._**
+- JSON version of review fields included in repo but not used by script.
 
 ## To Do
 
 - [x] Create post type
 - [x] Create taxonomy
-- [] Create fields (ACF Pro)
+- [x] Create fields (ACF Pro)
 - [] Create shortcode
 - [] Create shortcode fn
