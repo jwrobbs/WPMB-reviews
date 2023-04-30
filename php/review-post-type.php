@@ -5,20 +5,24 @@
  * @package wpmb_reviews
  */
 
-namespace WPMB_Reviews\Review_Post_Type;
+namespace WPMB_Reviews\PHP;
+
+use WP_Error;
 
 defined( 'ABSPATH' ) || exit;
 
 /**
  * Register the review post type
  *
- * @return void
+ * @return WP_Error|void
  */
 function register_post_type_review() {
-	$single_name = __( 'Review', 'wpmb-reviews' );
-	$plural_name = __( 'Reviews', 'wpmb-reviews' );
+	if ( ! isset( WPMB_REVIEWS_DETAILS['review_post_type'] ) ) {
+		return new WP_Error( 'review type not set', 'Cannot register review post type without a review type set' );
+	}
+	$single_name = WPMB_REVIEWS_DETAILS['single_name'];
+	$plural_name = WPMB_REVIEWS_DETAILS['plural_name'];
 
-	// Set $labels w/o sprintf.
 	$labels = array(
 		'name'                  => $plural_name,
 		'singular_name'         => $single_name,
@@ -51,7 +55,7 @@ function register_post_type_review() {
 
 	// Register the post type.
 	register_post_type(
-		'review',
+		WPMB_REVIEWS_DETAILS['review_post_type'],
 		array(
 			'labels'                => $labels,
 			'public'                => true,
@@ -62,7 +66,7 @@ function register_post_type_review() {
 			'supports'              => array( 'title', 'editor', 'thumbnail', 'excerpt', 'custom-fields' ),
 			'menu_icon'             => 'dashicons-star-filled',
 			'hierarchical'          => false,
-			'taxonomies'            => array( 'post_tag' ),
+			'taxonomies'            => array( 'post_tag' ), // Or remove this line for no shared tags.
 		)
 	);
 }
