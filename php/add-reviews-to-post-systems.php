@@ -31,10 +31,8 @@ function add_review_post_type_to_main_loop( $query ) {
 		$query_vars['post_type'][] = WPMB_REVIEWS_DETAILS['review_post_type'];
 		$query->set( 'post_type', $query_vars['post_type'] );
 	}
-	// $query->set( 'post_type', array( 'post', WPMB_REVIEWS_DETAILS['review_post_type'] ) );
 
 	WPMB_Utilities::write_log( $query->query_vars );
 }
 // Add review post type to main loop.
 add_action( 'pre_get_posts', __NAMESPACE__ . '\add_review_post_type_to_main_loop' );
-
