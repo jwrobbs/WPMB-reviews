@@ -25,8 +25,8 @@ This plugin was developed for 2 purposes:
 - [x] Create post type
 - [x] Create taxonomy
 - [x] Create fields (ACF Pro)
-- [] Calulate average
-- [] Create shortcode
-- [] Create shortcode fn
-- [] Add reviews to main loop
-- [] Add reviews to rss
+- [x] Calulate average
+- [x] Create shortcode
+- [] Create shortcode fn (output)
+- [x] Add reviews to main loop?
+- [x] Add reviews to rss?
