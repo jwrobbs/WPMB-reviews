@@ -12,6 +12,8 @@
  * @package wpmb_reviews
  */
 
+namespace WPMB_Reviews;
+
 defined( 'ABSPATH' ) || exit;
 
 // Define constants.
@@ -31,3 +33,5 @@ require 'php/review-post-type.php';
 require 'php/review-category-taxonomy.php';
 require 'php/review-fields.php';
 require 'php/review-shortcode.php';
+require 'php/save-review.php';
+require 'php/add-reviews-to-post-systems.php';
