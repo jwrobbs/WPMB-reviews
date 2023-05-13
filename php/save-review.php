@@ -17,6 +17,12 @@ defined( 'ABSPATH' ) || exit;
  * @return void
  */
 function wpmb_calculate_average_rating( $post_id ) {
+
+	// bail out if this is an autosave.
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	}
+
 	$fields = get_fields( $post_id );
 	// Loop through array $fields. Count and sum ratings where key ends in '_score'.
 	$count = 0;
